@@ -5,7 +5,7 @@
 1. 安装最新版的docker时，其依赖的包containerd.io版本不匹配，需要下载官方的rpm包单独安装或降级安装。
 2. 官方未提供 fabric-ca-client 的1.4.4版本，需要手动编译。
 3. 下载二进制和镜像的脚本文件，需要用官方源码中的脚本。
-4. 虚拟机的磁盘容量默认10G，由可能会提示磁盘空间不足，需要扩容磁盘。（视频中未演示，后续会出一期单独的扩容的文章和视频）
+4. 虚拟机的磁盘容量默认10G，有可能会提示磁盘空间不足，需要扩容磁盘。（视频中未演示，后续会出一期单独的扩容的文章和视频）
 
 此教程以搭建运行官方的Build Your First Network(简称：BYFN)示例环境为主。
 
@@ -53,7 +53,7 @@ hyperledger/fabric-orderer:latest  | orderer.example.com
 
 
 
-上面列表是成功运行BYFN示例后，本地的所有启动的docker容器，需要注意的是NAME带有dev-前缀的docker容器。
+上面列表是成功运行BYFN示例后，本地所有启动的docker容器，需要注意的是NAME带有dev-前缀的docker容器。
 这些示例是在安装chaincode时由peer对等节点创建的，用于编译、安装、实例化chaincode的容器。
 
 
