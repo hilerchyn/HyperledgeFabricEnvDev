@@ -129,3 +129,15 @@ docker-compose 创建的volumes也加了项目名称作为前缀。
 
 volumes的所有映射全部配置在 base\docker-compose-base.yaml 文件中。
 
+
+
+### 设置Docker容器开机自启
+---
+
+docker-composer.yaml 中配置如下内容：
+
+restart: always
+
+如果没有配置，则可以用下面的命令更新启动设置：
+
+ docker update --restart=always $( docker ps --format '{{.Names}}')
