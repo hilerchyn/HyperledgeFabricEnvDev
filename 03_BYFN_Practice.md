@@ -100,3 +100,32 @@ https://docs.docker.com/engine/reference/commandline/volume_create/
 docker-compose 创建的volumes也加了项目名称作为前缀。
 
 
+
+我们查看一下生成的volume的信息：
+
+![volume inspect](./images/03_volume_data.png)
+
+如上图中查看到的信息，其实所有的docker容器中的数据全部通过volume导出到当前宿主机中了。
+这就是为什么我们之前测试删除后的容器的数据，在新的容器中仍然存在。
+
+我们进入容器中查看一下 volume 挂载到了 容器的什么位置上：
+
+![volume inspect](./images/03_volume_data_inner.png)
+
+通过上面的两张图中的数据，可以找到对应关系，即：
+
+宿主机的volume：
+ /var/lib/docker/volumes/firstnetwork_peer0.org1.example.com/_data/
+
+对应，容器中的：
+ /var/hyperledger/production/
+
+
+通过 docker inspect 命令查看，容器的volume绑定信息，如下，可以佐证我们的推测
+
+![volume inspect](./images/03_volume_data_binds.png)
+
+
+
+volumes的所有映射全部配置在 base\docker-compose-base.yaml 文件中。
+
